@@ -98,7 +98,6 @@ Each job includes:
 - `endedAt` – when the job finished (ISO 8601)
 - `progress` – completion percentage
 - `title` – human-readable description
-- `notes` – additional status notes
 
 ## Example result
 
@@ -124,8 +123,7 @@ Each job includes:
     "startedAt": "2026-05-21T08:00:02Z",
     "endedAt": "2026-05-21T08:01:30Z",
     "progress": 45,
-    "title": "Refreshing Marketing Analytics",
-    "notes": "com.tableau.nativeapi.dll: DataSourceException"
+    "title": "Refreshing Marketing Analytics"
   }
 ]
 ```

@@ -10,7 +10,6 @@ export const jobSchema = z.object({
   endedAt: z.string().optional(),
   progress: z.coerce.number().optional(),
   title: z.string().optional(),
-  notes: z.string().optional(),
 });
 
 export type Job = z.infer<typeof jobSchema>;

@@ -75,7 +75,6 @@ export const getListJobsTool = (server: WebMcpServer): WebTool<typeof paramsSche
   - \`createdAt\`, \`startedAt\`, \`endedAt\` – timestamps
   - \`progress\` – completion percentage
   - \`title\` – human-readable description
-  - \`notes\` – additional status notes
 
   **Note:** Requires \`tableau:jobs:read\` scope (API 3.27+). This tool requires site administrator permissions. Filtering and pagination are handled server-side by the Tableau REST API.
   `,

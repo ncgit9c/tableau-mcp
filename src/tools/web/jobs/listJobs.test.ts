@@ -63,7 +63,10 @@ describe('listJobsTool', () => {
   });
 
   it('should successfully get jobs', async () => {
-    mocks.mockListJobs.mockResolvedValue({ pagination: { pageNumber: 1, pageSize: 100, totalAvailable: 1 }, jobs: mockJobs });
+    mocks.mockListJobs.mockResolvedValue({
+      pagination: { pageNumber: 1, pageSize: 100, totalAvailable: 1 },
+      jobs: mockJobs,
+    });
     const result = await getToolResult({});
     expect(result.isError).toBe(false);
     invariant(result.content[0].type === 'text');
@@ -77,7 +80,10 @@ describe('listJobsTool', () => {
   });
 
   it('should return empty message when no jobs are found', async () => {
-    mocks.mockListJobs.mockResolvedValue({ pagination: { pageNumber: 1, pageSize: 100, totalAvailable: 0 }, jobs: [] });
+    mocks.mockListJobs.mockResolvedValue({
+      pagination: { pageNumber: 1, pageSize: 100, totalAvailable: 0 },
+      jobs: [],
+    });
     const result = await getToolResult({});
     expect(result.isError).toBe(false);
     invariant(result.content[0].type === 'text');
@@ -96,7 +102,10 @@ describe('listJobsTool', () => {
   });
 
   it('should pass filter, pageSize, and pageNumber to API', async () => {
-    mocks.mockListJobs.mockResolvedValue({ pagination: { pageNumber: 2, pageSize: 50, totalAvailable: 100 }, jobs: mockJobs });
+    mocks.mockListJobs.mockResolvedValue({
+      pagination: { pageNumber: 2, pageSize: 50, totalAvailable: 100 },
+      jobs: mockJobs,
+    });
     await getToolResult({ filter: 'jobType:eq:refresh_extracts', pageSize: 50, pageNumber: 2 });
     expect(mocks.mockListJobs).toHaveBeenCalledWith({
       siteId: 'test-site-id',
@@ -117,7 +126,10 @@ describe('listJobsTool', () => {
   });
 
   it('should accept has operator for title field', async () => {
-    mocks.mockListJobs.mockResolvedValue({ pagination: { pageNumber: 1, pageSize: 100, totalAvailable: 1 }, jobs: mockJobs });
+    mocks.mockListJobs.mockResolvedValue({
+      pagination: { pageNumber: 1, pageSize: 100, totalAvailable: 1 },
+      jobs: mockJobs,
+    });
     const result = await getToolResult({ filter: 'title:has:Superstore' });
     expect(result.isError).toBe(false);
     expect(mocks.mockListJobs).toHaveBeenCalledWith({

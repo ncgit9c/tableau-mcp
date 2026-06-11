@@ -56,18 +56,22 @@ Filtering is handled server-side by the Tableau REST API.
 | Field | Type | Operators | Example |
 |-------|------|-----------|---------|
 | `jobType` | string | `eq`, `in` | `jobType:eq:refresh_extracts` |
-| `status` | string | `eq`, `in` | `status:eq:Failed` |
+| `status` | string | `eq` | `status:eq:Failed` |
 | `progress` | number | `eq`, `gt`, `gte`, `lt`, `lte` | `progress:lte:0` |
+| `priority` | number | `eq`, `gt`, `gte`, `lt`, `lte` | `priority:lte:10` |
+| `title` | string | `eq`, `has` | `title:has:Superstore` |
+| `subtitle` | string | `eq`, `has` | `subtitle:has:weekly` |
+| `notes` | string | `has` | `notes:has:nightly` |
+| `args` | string | `has` | `args:has:datasource` |
 | `createdAt` | string (ISO 8601) | `eq`, `gt`, `gte`, `lt`, `lte` | `createdAt:gt:2026-05-01T11:00:56Z` |
 | `startedAt` | string (ISO 8601) | `eq`, `gt`, `gte`, `lt`, `lte` | `startedAt:gte:2026-05-01T00:00:00Z` |
-| `endedAt` | string (ISO 8601) | `eq`, `gt`, `gte`, `lt`, `lte` | `endedAt:lt:2026-05-25T00:00:00Z` |
-| `title` | string | `eq`, `in`, `has` | `title:has:Superstore` |
-| `notes` | string | `eq`, `in`, `has` | `notes:has:nightly` |
+| `completedAt` | string (ISO 8601) | `eq`, `gt`, `gte`, `lt`, `lte` | `completedAt:lt:2026-05-25T00:00:00Z` |
 
 ### Filter examples
 
 - Single filter: `jobType:eq:refresh_extracts`
 - Multiple filters (AND): `jobType:eq:refresh_extracts,progress:lte:0`
+- In operator (bracketed list): `jobType:in:[refresh_extracts,run_flow]`
 - Text search: `title:has:Superstore`
 - Date filter: `createdAt:gt:2026-05-01T11:00:56Z`
 - Flow jobs: `jobType:eq:run_flow`

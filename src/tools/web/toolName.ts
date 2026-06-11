@@ -40,6 +40,7 @@ export const webToolGroupNames = [
   'pulse',
   'content-exploration',
   'tasks',
+  'jobs',
   'users',
   'token-management',
   'admin-insights',
@@ -69,7 +70,8 @@ export const webToolGroups = {
     'generate-pulse-insight-brief',
   ],
   'content-exploration': ['search-content'],
-  tasks: ['list-extract-refresh-tasks', 'list-jobs'],
+  tasks: ['list-extract-refresh-tasks'],
+  jobs: ['list-jobs'],
   users: ['list-users'],
   'token-management': ['revoke-access-token', 'reset-consent'],
   'admin-insights': [

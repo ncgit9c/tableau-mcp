@@ -47,9 +47,8 @@ export default class JobsMethods extends AuthenticatedMethods<typeof jobsApis> {
       ...this.authHeader,
     });
     const response = parseListJobsResponse(raw);
-    const jobs = 'backgroundJob' in response.backgroundJobs
-      ? response.backgroundJobs.backgroundJob
-      : [];
+    const jobs =
+      'backgroundJob' in response.backgroundJobs ? response.backgroundJobs.backgroundJob : [];
     return {
       pagination: response.pagination,
       jobs,
